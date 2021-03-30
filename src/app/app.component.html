@@ -1,0 +1,48 @@
+<nav class="navbar navbar-light" style="background-color: rgb(36, 69, 116);">
+  <a class="navbar-brand" href="#">
+    <img class="logo" src="/assets/disrupt-lab-logo.jpeg">
+  </a>
+</nav>
+<div class="container-fluid">
+  <mat-grid-list cols="2" rowHeight="2:1.5">
+    <ng-container *ngFor="let deviceInformation of devicesInformation">
+      <mat-grid-tile>
+        <mat-card class="example-card">
+          <span class='card-title'>
+            <h1 class="text-wrap text-center badge badge-primary w-100">{{ deviceInformation._deviceName }}</h1>
+          </span>
+          <img mat-card-image src="/assets/disrupt-lab-logo.jpeg">
+          <mat-card-content>
+            <span class="clearfix">
+              <h3 class="mat-title float-left"> Production Count : </h3>
+              <p class="float-right text-monospace">
+                {{ deviceInformation.deviceStatistics ? deviceInformation.deviceStatistics._productionCount  : 'No record available' }}
+              </p>
+            </span>
+            <br>
+            <span class="clearfix">
+              <h3 class="mat-title float-left"> Recorded At : </h3>
+              <p class="float-right text-monospace">
+                {{ deviceInformation.deviceStatistics ? deviceInformation.deviceStatistics._productionCountRecordedAt  : 'No record available' }}
+              </p>
+            </span>
+            <br>
+            <ng-container
+              *ngIf="deviceInformation.deviceStatistics && deviceInformation.deviceStatistics._deviceStatus ;else second">
+              <span class="badge badge-success w-100">Active</span>
+            </ng-container>
+            <ng-template #second>
+              <ng-container
+                *ngIf="deviceInformation.deviceStatistics && !deviceInformation.deviceStatistics._deviceStatus">
+                <span class="badge badge-danger w-100">Inactive</span>
+              </ng-container>
+            </ng-template>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </ng-container>
+  </mat-grid-list>
+</div>
+<footer>
+  <img mat-card-image src="/assets/disrupt-lab-footr.gif">
+</footer>

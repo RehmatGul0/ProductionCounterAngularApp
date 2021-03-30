@@ -1,0 +1,45 @@
+mat-card {
+  max-width: 400px;
+}
+
+.example-card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+}
+
+mat-card-title {
+  display: inline-block;
+  vertical-align: bottom;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+p,
+h3 {
+  display: inline-block;
+  /* display on the same line */
+}
+
+nav {
+  max-height: 100px;
+  padding: 0px;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+
+.logo {
+  display: block;
+  width: 200px;
+}
+
+footer {
+  bottom: 0;
+}
+
+footer img {
+  max-height: 100px;
+}
